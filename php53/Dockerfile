@@ -5,6 +5,8 @@ RUN mkdir /var/www/default/htdocs -p && \
 
 ADD ./php.ini /etc/php.ini
 
+ENV PHPRC=/etc/php.ini
+
 RUN usermod -u 1000 www-data
 
 WORKDIR "/var/www/bitrix"
