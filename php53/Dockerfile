@@ -1,11 +1,9 @@
-FROM devilbox/php-fpm-5.3:latest
+FROM devilbox/php-fpm:5.3-prod
 
 RUN mkdir /var/www/default/htdocs -p && \
     ln -s /var/www/default/htdocs /var/www/bitrix
 
-ADD ./php.ini /etc/php.ini
-
-ENV PHPRC=/etc/php.ini
+COPY php.ini /etc/php-custom.d/
 
 RUN usermod -u 1000 www-data
 
